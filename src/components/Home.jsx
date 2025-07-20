@@ -228,7 +228,12 @@ const Home = () => {
             btnStyle="px-5 py-2 border border-green-600 rounded-full text-lg text-white bg-green-500 mt-2 
   hover:bg-green-600 hover:shadow-lg hover:scale-105 cursor-pointer transition-transform duration-300 ease-in-out"
           >
-            <a href="/CV.pdf" className="block w-full h-full">
+            <a
+              href="/CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full h-full"
+            >
               Download CV
             </a>
           </Button>
