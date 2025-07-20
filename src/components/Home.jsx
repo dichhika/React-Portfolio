@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import photo1 from "../assets/img/Home-Img/pic2.jpg";
+import laptop from "../assets/img/Home-Img/laptop.png";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
 import Button from "../components/Button";
@@ -11,20 +12,20 @@ import postman from "../assets/img/Tools-Img/postman.png";
 import react from "../assets/img/Tools-Img/react.png";
 import tailwind from "../assets/img/Tools-Img/tailwind.png";
 import figma from "../assets/img/Tools-Img/Figma.png";
-import bootstrap from "../assets/img/Tools-Img/Bootstrap.png";
 import portgenerator from "../assets/img/Project-Img/logo.png";
 import portfolio from "../assets/img/Project-Img/Portfolio.png";
 import pla from "../assets/img/Project-Img/Pla.png";
+import blog from "../assets/img/Project-Img/blog.jpg";
+import ecommerce from "../assets/img/Project-Img/Ecommerce.png";
 
 import {
-  FaFacebook,
-  FaLinkedin,
-  FaInstagram,
-  FaUser,
-  FaPhone,
   FaEnvelope,
   FaMapMarkerAlt,
-  FaGraduationCap,
+  FaLinkedin,
+  FaGithub,
+  FaWhatsapp,
+  FaFacebook,
+  FaInstagram,
 } from "react-icons/fa";
 import Typewriter from "typewriter-effect";
 
@@ -37,7 +38,6 @@ const tools = [
   { name: "Postman", image: postman },
   { name: "Git", image: git },
   { name: "Figma", image: figma },
-  { name: "Bootstrap", image: bootstrap },
 ];
 
 const project = [
@@ -45,25 +45,113 @@ const project = [
     image: portfolio,
     name: "Personal Portfolio",
     description: "Built with React.js and Tailwind CSS",
-    tech1: "React.js",
-    tech2: "Tailwind CSS",
+    link: "https://your-portfolio-link.com",
   },
   {
     image: portgenerator,
     name: "Card Generator",
-    description: "Built with HTML, CSS and JavaScripts",
-    tech1: "HTML/CSS",
-    tech2: "JavaScripts",
+    description: "Built with HTML, CSS and JavaScript",
+    link: "https://your-card-generator-link.com",
   },
   {
     image: pla,
     name: "Business Website",
-    description: "Built with HTML, CSS and JavaScripts",
-    tech1: "HTML/CSS",
-    tech2: "JavaScripts",
+    description: "Built with HTML, CSS and JavaScript",
+    link: "https://your-business-website-link.com",
+  },
+  {
+    image: blog,
+    name: "Blog Management System",
+    description: "Built with React and Tailwind Css",
+    link: "https://your-business-website-link.com",
+  },
+  {
+    image: ecommerce,
+    name: "Ecommerce Website",
+    description: "Built with  Tailwind Css and Javascript ",
+    link: "https://your-business-website-link.com",
   },
 ];
+
 const Home = () => {
+  const [activeTab, setActiveTab] = useState("about");
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case "about":
+        return (
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-gray-600 text-base sm:text-lg"
+          >
+            I'm Dichhika Baral — a frontend developer passionate about crafting
+            clean, modern, and responsive user interfaces. I specialize in
+            translating designs into pixel-perfect layouts using HTML, CSS,
+            JavaScript, React, and Tailwind CSS. I enjoy building interactive
+            web applications that are fast, accessible, and easy to use. My
+            focus is on writing clean, maintainable code and continuously
+            learning new tools and best practices to enhance user experience.
+          </motion.p>
+        );
+      case "education":
+        return (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-gray-600 text-base sm:text-lg space-y-2"
+          >
+            <p>
+              <strong>Bachelor of Information Management</strong>
+            </p>
+            <p>Nihareeka College , Biratnagar,Nepal</p>
+            <p>(2020 - 2025)</p>
+          </motion.div>
+        );
+      case "experience":
+        return (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-gray-600 text-base sm:text-lg space-y-2"
+          >
+            <p>
+              <strong>Frontend Development Intern</strong>
+            </p>
+            <p>Velocis Core Company,Biratnagar,Nepal</p>
+            <p>Duration: December 23, 2024 - June 1, 2025</p>
+          </motion.div>
+        );
+      default:
+        return null;
+    }
+  };
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { name, email, message } = formData;
+
+    if (!name || !email || !message) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    alert("Thank you for contacting me!");
+    setFormData({ name: "", email: "", message: "" });
+  };
+
   return (
     <>
       {/* Hero Section */}
@@ -73,13 +161,20 @@ const Home = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="bg-green-500 flex flex-col-reverse md:flex-row items-center justify-around p-6 md:p-12 lg:p-20"
+        className="relative overflow-hidden bg-gradient-to-r from-green-200 via-white to-green-300 flex flex-col-reverse md:flex-row items-center justify-around p-6 md:p-12 lg:p-20"
       >
-        <div className="p-4 text-center md:text-left">
-          <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-snug">
+        {/* Decorative Balls with Soft Animation and Color Changes */}
+        <div className="absolute top-5 left-5 size-12 rounded-full bg-green-400 opacity-40 blur-md animate-pulse"></div>
+        <div className="absolute top-20 right-10 size-16 rounded-full bg-green-300 opacity-30 blur-lg animate-pulse"></div>
+        <div className="absolute bottom-10 left-1/4 size-20 rounded-full bg-green-500 opacity-40 blur-lg animate-pulse"></div>
+        <div className="absolute bottom-4 right-10 size-14 rounded-full bg-green-600 opacity-40 blur-md animate-pulse"></div>
+
+        {/* Text content */}
+        <div className="p-4 text-center md:text-left z-10">
+          <h1 className="text-green-600 text-3xl sm:text-3xl md:text-4xl">
             I'm Dichhika Baral
           </h1>
-          <div className="text-white text-2xl sm:text-3xl md:text-4xl">
+          <div className="text-green-500 text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-snug">
             <Typewriter
               options={{
                 strings: ["Frontend Developer"],
@@ -89,6 +184,7 @@ const Home = () => {
               }}
             />
           </div>
+
           <motion.div
             initial={{ opacity: 0, y: 70 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -96,25 +192,54 @@ const Home = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="flex justify-center md:justify-start gap-6 my-4"
           >
+            {/* Facebook */}
             <Link to="">
-              <FaFacebook className="text-2xl" />
+              <div
+                className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md 
+                    text-green-700 hover:bg-[#1877F2] hover:text-white transition duration-300"
+              >
+                <FaFacebook className="text-xl" />
+              </div>
             </Link>
+
+            {/* LinkedIn */}
             <Link to="">
-              <FaLinkedin className="text-2xl" />
+              <div
+                className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md 
+                    text-green-700 hover:bg-[#0077B5] hover:text-white transition duration-300"
+              >
+                <FaLinkedin className="text-xl" />
+              </div>
             </Link>
+
+            {/* Instagram */}
             <Link to="">
-              <FaInstagram className="text-2xl" />
+              <div
+                className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md 
+    text-green-700 hover:bg-gradient-to-r hover:from-[#E4405F] hover:to-yellow-200
+ hover:text-white transition duration-300"
+              >
+                <FaInstagram className="text-xl" />
+              </div>
             </Link>
           </motion.div>
-          <Button btnStyle="p-3 border text-xl ">
+
+          <Button
+            btnStyle="px-5 py-2 border border-green-600 rounded-full text-lg text-white bg-green-500 mt-2 
+  hover:bg-green-600 hover:shadow-lg hover:scale-105 transition-transform duration-300 ease-in-out"
+          >
             <Link to="">Download CV</Link>
           </Button>
         </div>
 
-        <img
-          className="p-5 rounded-full w-60 sm:w-72 md:w-80 lg:w-[500px]"
+        {/* Hero image with Animation */}
+        <motion.img
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="p-5 rounded-full w-60 sm:w-72 md:w-80 lg:w-[500px] z-10 shadow-xl hover:scale-105 transition-transform duration-300"
           src={photo1}
-          alt="img"
+          alt="Dichhika Baral"
         />
       </motion.div>
 
@@ -131,7 +256,7 @@ const Home = () => {
           <div>
             <img
               className="w-64 sm:w-80 md:w-96 lg:w-[500px] h-auto p-3 object-cover"
-              src={photo1}
+              src={laptop}
               alt="Dichhika Baral"
             />
           </div>
@@ -139,39 +264,26 @@ const Home = () => {
             <h2 className="text-center text-green-500 font-bold text-2xl sm:text-3xl p-4">
               ABOUT ME
             </h2>
-            <p className="text-gray-600 text-base sm:text-lg">
-              Hey, I'm Dichhika Baral — a passionate frontend developer who
-              loves crafting clean and modern user experiences. I specialize in
-              building responsive interfaces with Html, CSS, JavaScript, React
-              and Tailwind CSS.
-            </p>
-
-            <ul className="space-y-3 text-gray-700 text-base sm:text-lg">
-              <li className="flex items-center gap-3">
-                <FaUser className="text-purple-500" />
-                <span>Dichhika Baral</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <FaPhone className="text-purple-500" />
-                <span>9816368996</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <FaEnvelope className="text-purple-500" />
-                <span>dichhika123@gmail.com</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <FaMapMarkerAlt className="text-purple-500" />
-                <span>Biratnagar-4, Kharji</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <FaGraduationCap className="text-purple-500" />
-                <span>Bachelor of Information Management</span>
-              </li>
-            </ul>
-            <div className="text-center">
-              <Button btnStyle="p-2 border text-xl bg-purple-500">
-                <Link to="">Hire Me</Link>
-              </Button>
+            <div className="flex justify-center gap-4 mb-4">
+              {["about", "education", "experience"].map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`px-4 py-2 rounded-md text-sm font-medium ${
+                    activeTab === tab
+                      ? "bg-green-500 text-white"
+                      : "bg-gray-200 text-gray-800"
+                  }`}
+                >
+                  {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                </button>
+              ))}
+            </div>
+            <div>{renderContent()}</div>
+            <div className="text-center pt-4">
+              <button className="bg-green-500 text-white px-6 py-2 rounded shadow hover:scale-105 transition-transform duration-300">
+                Hire Me
+              </button>
             </div>
           </div>
         </div>
@@ -179,19 +291,18 @@ const Home = () => {
 
       {/* Skills Section */}
       <motion.section
-        className="min-h-screen flex flex-col items-center text-black  justify-center px-4"
+        className="relative flex flex-col items-center text-black justify-center px-4 pb-0 bg-gray-100"
         id="skills"
         initial={{ opacity: 0, y: 70 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <h2 className="text-center font-bold text-5xl mb-4">My Toolbox</h2>
-        <p className="text-center  mb-10 text-2xl ">
+        <h2 className="text-center font-bold text-5xl mb-4 z-10">My Toolbox</h2>
+        <p className="text-center mb-10 text-2xl z-10">
           Technologies and tools I work with
         </p>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-9">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-9 z-10">
           {tools.map((tool, index) => (
             <motion.div
               key={index}
@@ -204,8 +315,7 @@ const Home = () => {
                 damping: 10,
                 delay: index * 0.2,
               }}
-              className="flex flex-col items-center bg-white justify-center px-12 py-8 rounded-xl shadow-md 
-               transform transition-transform duration-300 hover:scale-110"
+              className="flex flex-col items-center bg-white justify-center px-12 py-8 rounded-xl shadow-md transform transition-transform duration-300 hover:scale-110"
             >
               <img
                 src={tool.image}
@@ -218,101 +328,212 @@ const Home = () => {
         </div>
       </motion.section>
       <hr />
-      {/* projects */}
+      {/* Project Banner Section */}
       <motion.section
         initial={{ opacity: 0, y: 70 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="min-h-screen flex flex-col   text-black items-center justify-center px-4 py-15"
-        id="projects"
+        className="flex items-center justify-center px-4 py-16 bg-gradient-to-r from-green-200 to-green-300 mt-5"
+        id="project-banner"
       >
-        <h2 className="font-bold text-5xl">My Projects</h2>
-        <p className="text-sm py-5 md:text-2xl">
-          Selected work showcasing my frontend development expertise
-        </p>
-        <div className="grid grid-cols-1 gap-3 bg-grey md:grid-cols-2 gap-12">
-          {project.map((projects, index) => (
-            <div
-              className="relative shadow-md rounded-2xl overflow-hidden h-70 w-full group"
-              key={index}
-            >
-              <img
-                src={projects.image}
-                alt={projects.name}
-                className="h-60 w-full transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute bottom-0 left-0 p-4 bg-opacity-80 w-full">
-                <h3 className="text-xl font-bold text-blue-600 md:text-2x">
-                  {projects.name}
-                </h3>
-                <p className="text-green-700 text-sm md:text-lg">
-                  {projects.description}
-                </p>
-                <div className="flex ">
-                  <p className=" mr-3 py-1 px-3 rounded-full bg-gray-300">
-                    {projects.tech1}
-                  </p>
-                  <p className=" mr-3 py-1 px-3 rounded-3xl bg-gray-300">
-                    {projects.tech2}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
+        <div className="text-center">
+          <h2 className="text-3xl font-bold text-green-700 mb-3">
+            Have a Project Idea?
+          </h2>
+          <p className="text-base text-gray-700 mb-5">
+            Let's work together to create something amazing.
+          </p>
+          <button className="bg-green-600 text-white px-6 py-2 rounded-md font-semibold shadow hover:scale-105 transition-transform">
+            Contact Me
+          </button>
         </div>
       </motion.section>
+
       <hr />
+      {/* Projects Showcase */}
+      <motion.section
+        initial={{ opacity: 0, y: 70 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="bg-gray-100 px-6 py-16"
+        id="projects"
+      >
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-4xl font-bold text-green-700 mb-4">
+            My Projects
+          </h2>
+          <p className="text-gray-600 text-lg mb-10">
+            A selection of work showcasing my frontend development skills
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {project.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                whileHover={{ scale: 1.05 }}
+                className="bg-white rounded-xl shadow-md hover:shadow-xl overflow-hidden group transition-transform duration-300"
+              >
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="h-48 w-full object-cover group-hover:opacity-90 transition duration-300"
+                />
+                <div className="p-5 text-left">
+                  <h3 className="text-xl font-semibold text-green-600">
+                    {item.name}
+                  </h3>
+                  <p className="text-gray-700 text-sm mt-2 mb-4">
+                    {item.description}
+                  </p>
+
+                  {item.link && (
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition"
+                    >
+                      View Project
+                    </a>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
 
       {/* Contact Section */}
+      {/* banner */}
+      <div className="text-center mt-4">
+        <h1 className="text-4xl font-bold text-green-700 mb-3">Contact</h1>
+        <p className="text-gray-700 mb-1 text-2xl">
+          Let's connect and work together
+        </p>
+      </div>
+
+      {/* form */}
       <motion.div
         initial={{ opacity: 0, y: 70 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         id="contact"
-        className="flex items-center justify-center bg-white px-4 py-10 text-black"
+        className="flex items-center justify-center px-4 py-10 bg-grey-200" // min-h-screen REMOVED
       >
-        <div className="w-full max-w-xl bg-gray-100 p-6 rounded shadow">
-          <h1 className="text-center text-2xl sm:text-3xl font-bold text-green-600 mb-6">
-            CONTACT ME
-          </h1>
-          <form className="space-y-4">
-            <div className="flex flex-col sm:flex-row gap-4">
+        <div className="w-full max-w-6xl grid md:grid-cols-2 gap-10">
+          {/* Left: Contact Form */}
+          <div className="bg-gradient-to-r from-green-200  to-green-300 p-6 rounded-xl shadow-xl text-white">
+            <h1 className="text-3xl font-bold mb-6 text-green-700">
+              Send Me a Message
+            </h1>
+            <form onSubmit={handleSubmit} className="space-y-4">
               <input
                 type="text"
+                name="name"
                 placeholder="Your Name"
-                className="p-3 border rounded w-full"
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full p-3 rounded bg-white placeholder-gray-400"
                 required
               />
               <input
                 type="email"
-                placeholder="Your Email"
-                className="p-3 border rounded w-full"
+                name="email"
+                placeholder="your.email@example.com"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full p-3 rounded bg-white placeholder-gray-400"
                 required
               />
-            </div>
-            <input
-              type="text"
-              placeholder="Subject"
-              className="p-3 border rounded w-full"
-              required
-            />
-            <textarea
-              placeholder="Message"
-              rows="5"
-              className="p-3 border rounded w-full"
-              required
-            ></textarea>
-            <div className="text-center">
+              <textarea
+                name="message"
+                rows="5"
+                placeholder="Your message here..."
+                value={formData.message}
+                onChange={handleChange}
+                className="w-full p-3 rounded bg-white placeholder-gray-400"
+                required
+              ></textarea>
+              <div className="text-right text-sm text-black">
+                {formData.message.length}/1000
+              </div>
               <button
                 type="submit"
-                className="px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+                className="w-full py-3 bg-green-600 hover:bg-green-700 rounded text-white font-semibold"
               >
-                Send Message
+                Send Message →
               </button>
+            </form>
+          </div>
+
+          {/* Right: Info & Links */}
+          <div className="grid md:grid-cols-1 gap-6 text-black">
+            {/* Contact Info */}
+            <div className="rounded-xl p-6 bg-gradient-to-r from-green-200  to-green-300 shadow-md">
+              <h2 className="text-2xl font-bold text-green-700 mb-6">
+                Contact Information
+              </h2>
+              <div className="flex items-center gap-3 mb-4">
+                <FaEnvelope className="text-green-700 text-lg" />
+                <span className="font-medium">dichhika123@gmail.com</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <FaMapMarkerAlt className="text-green-700 text-lg" />
+                <span className="font-medium">Biratnagar, Nepal</span>
+              </div>
             </div>
-          </form>
+
+            {/* Connect With Me */}
+            <div className="rounded-xl p-6 bg-gradient-to-r from-green-200  to-green-300 shadow-md">
+              <h2 className="text-2xl font-bold text-green-700 mb-6">
+                Connect With Me
+              </h2>
+              <div className="flex gap-6 justify-start">
+                <div className="flex flex-col items-center">
+                  <a
+                    href="www.linkedin.com/in/dichhika-baral2"
+                    className="bg-[#0f172a] p-3 rounded-full hover:bg-blue-500 transition"
+                  >
+                    <FaLinkedin className="text-white text-xl" />
+                  </a>
+                  <p className="text-sm mt-2 font-medium text-[#0f172a]">
+                    LinkedIn
+                  </p>
+                </div>
+
+                <div className="flex flex-col items-center">
+                  <a
+                    href="https://github.com/dichhika"
+                    className="bg-[#0f172a] p-3 rounded-full hover:bg-gray-600 transition"
+                  >
+                    <FaGithub className="text-white text-xl" />
+                  </a>
+                  <p className="text-sm mt-2 font-medium text-[#0f172a]">
+                    GitHub
+                  </p>
+                </div>
+
+                <div className="flex flex-col items-center">
+                  <a
+                    href=""
+                    className="bg-[#0f172a] p-3 rounded-full hover:bg-green-500 transition"
+                  >
+                    <FaWhatsapp className="text-white text-xl" />
+                  </a>
+                  <p className="text-sm mt-2 font-medium text-[#0f172a]">
+                    WhatsApp
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </motion.div>
     </>

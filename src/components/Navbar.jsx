@@ -6,49 +6,49 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const nav = [
-    {
-      name: "Home",
-      link: "home",
-    },
-    {
-      name: "About",
-      link: "about",
-    },
+    { name: "Home", link: "home" },
+    { name: "About", link: "about" },
     { name: "Skills", link: "skills" },
     { name: "Projects", link: "projects" },
     { name: "Contact", link: "contact" },
   ];
 
   return (
-    <nav className="bg-black text-white font-600 px-6 py-4 flex justify-between items-center sticky top-0 z-50 md:justify-around ">
+    <nav className="relative bg-gradient-to-r from-green-200 via-white to-green-300 text-black font-semibold px-6 py-5 flex justify-between items-center sticky top-0 z-50 md:justify-around shadow-md">
+      {/* Balls Background */}
+      <div className="absolute top-5 left-5 w-10 h-10 rounded-full bg-green-400 opacity-50 blur-sm z-0"></div>
+      <div className="absolute top-1/2 left-16 w-16 h-16 rounded-full bg-green-500 opacity-40 blur-md z-0"></div>
+      <div className="absolute bottom-10 left-1/3 w-14 h-14 rounded-full bg-green-600 opacity-40 blur-md z-0"></div>
+      <div className="absolute top-16 right-1/4 w-12 h-12 rounded-full bg-green-300 opacity-50 blur-sm z-0"></div>
+
       {/* Logo */}
-      <div className="text-3xl f cursor-pointer select-none">
-        <span className="text-green-500">Port</span>
-        <span className="text-white">folio</span>
+      <div className="text-3xl font-extrabold cursor-pointer select-none z-10">
+        <span className="text-green-700">Dichhika</span>
+        <span className="text-black"> Baral</span>
       </div>
 
       {/* Desktop Menu */}
-      <ul className="hidden md:flex gap-5">
-        {nav.map((navbar, index) => (
+      <ul className="hidden md:flex gap-8 z-10">
+        {nav.map((item, index) => (
           <li key={index}>
             <Link
               activeClass="active"
-              to={navbar.link}
+              to={item.link}
               spy={true}
               smooth={true}
               offset={-80}
               duration={500}
-              className="px-3 py-1 rounded text-2xl cursor-pointer"
+              className="text-xl font-bold px-4 py-2 rounded cursor-pointer hover:text-green-700 transition duration-200"
             >
-              {navbar.name}
+              {item.name}
             </Link>
           </li>
         ))}
       </ul>
 
-      {/* Mobile Hamburger Menu Button */}
+      {/* Hamburger Icon */}
       <button
-        className="md:hidden text-3xl"
+        className="md:hidden text-3xl text-black z-20"
         onClick={() => setMenuOpen(!menuOpen)}
       >
         <GiHamburgerMenu />
@@ -56,20 +56,20 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <ul className="absolute top-full left-0 w-full cursor-pointer bg-black flex flex-col items-center gap-4 py-4 md:hidden z-40">
-          {nav.map((navbar, index) => (
+        <ul className="absolute top-full left-0 w-full bg-gradient-to-r from-green-200 via-white to-green-300 text-black flex flex-col items-center gap-4 py-4 md:hidden z-30 shadow-md">
+          {nav.map((item, index) => (
             <li key={index}>
               <Link
                 activeClass="active"
-                to={navbar.link}
+                to={item.link}
                 spy={true}
                 smooth={true}
                 offset={-80}
                 duration={500}
                 onClick={() => setMenuOpen(false)}
-                className="px-3 py-1 rounded text-xl f hover:bg-green-500 cursor-pointer block"
+                className="text-lg font-bold px-4 py-2 rounded hover:text-green-700 transition duration-200"
               >
-                {navbar.name}
+                {item.name}
               </Link>
             </li>
           ))}
