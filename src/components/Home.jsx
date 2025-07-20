@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import photo1 from "../assets/img/Home-Img/pic2.jpg";
-import laptop from "../assets/img/Home-Img/laptop.png";
+import laptop from "../assets/img/Home-Img/Laptop.png";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
 import Button from "../components/Button";
@@ -45,7 +45,7 @@ const project = [
     image: portfolio,
     name: "Personal Portfolio",
     description: "Built with React.js and Tailwind CSS",
-    link: "https://your-portfolio-link.com",
+    link: "http://localhost:5173/",
   },
   {
     image: portgenerator,
@@ -57,19 +57,19 @@ const project = [
     image: pla,
     name: "Business Website",
     description: "Built with HTML, CSS and JavaScript",
-    link: "https://your-business-website-link.com",
+    link: "https://dichhika.github.io/Pla-Js/",
   },
   {
     image: blog,
     name: "Blog Management System",
     description: "Built with React and Tailwind Css",
-    link: "https://your-business-website-link.com",
+    link: "https://blog-management-react.vercel.app/",
   },
   {
     image: ecommerce,
     name: "Ecommerce Website",
     description: "Built with  Tailwind Css and Javascript ",
-    link: "https://your-business-website-link.com",
+    link: "https://dichhika.github.io/Tailwind-Ecommerce",
   },
 ];
 
@@ -106,7 +106,7 @@ const Home = () => {
             <p>
               <strong>Bachelor of Information Management</strong>
             </p>
-            <p>Nihareeka College , Biratnagar,Nepal</p>
+            <p>Nihareeka College , Biratnagar, Nepal</p>
             <p>(2020 - 2025)</p>
           </motion.div>
         );
