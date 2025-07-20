@@ -41,14 +41,18 @@ const Footer = () => {
           <h2 className="text-xl font-semibold text-white">CONNECT</h2>
           <div className="flex gap-5 text-2xl">
             <a
-              href="#"
+              href="https://www.linkedin.com/in/dichhika-baral2"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-12 h-12 flex items-center justify-center rounded-xl bg-white/10 hover:bg-blue-500 hover:text-white shadow-lg transition-all duration-300"
               aria-label="LinkedIn"
             >
               <FaLinkedin />
             </a>
             <a
-              href="#"
+              href="https://github.com/dichhika"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-12 h-12 flex items-center justify-center rounded-xl bg-white/10 hover:bg-black hover:text-white shadow-lg transition-all duration-300"
               aria-label="GitHub"
             >

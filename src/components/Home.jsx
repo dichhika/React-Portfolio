@@ -193,27 +193,39 @@ const Home = () => {
             className="flex justify-center md:justify-start gap-6 my-4"
           >
             {/* Facebook */}
-            <Link to="">
+            <a
+              href="https://www.facebook.com/dichhika.baral"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <div
                 className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md 
                     text-green-700 hover:bg-[#1877F2] hover:text-white cursor-pointer transition duration-300"
               >
                 <FaFacebook className="text-xl" />
               </div>
-            </Link>
+            </a>
 
             {/* LinkedIn */}
-            <Link to="">
+            <a
+              href="https://www.linkedin.com/in/dichhika-baral2"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <div
                 className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md 
-                    text-green-700 hover:bg-[#0077B5] hover:text-white cursor-pointer transition duration-300"
+        text-green-700 hover:bg-[#0077B5] hover:text-white cursor-pointer transition duration-300"
               >
                 <FaLinkedin className="text-xl" />
               </div>
-            </Link>
+            </a>
 
             {/* Instagram */}
-            <Link to="">
+            <a
+              href="https://www.instagram.com/dichhika?igsh=NmYxNjI0NWhucHV4"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <div
                 className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md 
     text-green-700 hover:bg-gradient-to-r hover:from-[#E4405F] hover:to-yellow-200
@@ -221,7 +233,7 @@ const Home = () => {
               >
                 <FaInstagram className="text-xl" />
               </div>
-            </Link>
+            </a>
           </motion.div>
 
           <Button
@@ -521,11 +533,14 @@ const Home = () => {
               <div className="flex gap-6 justify-start">
                 <div className="flex flex-col items-center">
                   <a
-                    href="www.linkedin.com/in/dichhika-baral2"
+                    href="https://www.linkedin.com/in/dichhika-baral2"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="bg-[#0f172a] p-3 rounded-full hover:bg-blue-500 transition"
                   >
                     <FaLinkedin className="text-white text-xl" />
                   </a>
+
                   <p className="text-sm mt-2 font-medium text-[#0f172a]">
                     LinkedIn
                   </p>
@@ -534,6 +549,8 @@ const Home = () => {
                 <div className="flex flex-col items-center">
                   <a
                     href="https://github.com/dichhika"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="bg-[#0f172a] p-3 rounded-full hover:bg-gray-600 transition"
                   >
                     <FaGithub className="text-white text-xl" />
