@@ -1,14 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaArrowUp, FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-scroll";
 
 const Footer = () => {
   const year = new Date().getFullYear();
+  const [showScrollButton, setShowScrollButton] = useState(false);
+
+  // Show button only when scroll is down
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setShowScrollButton(scrollY > 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <footer className="bg-green-500 text-white py-10 px-6 relative">
+    <footer className="bg-green-400 text-white py-10 px-6 relative">
       {/* Top Section */}
-      <div className="max-w-7xl mx-auto text-xl flex flex-col md:flex-row justify-between gap-20 ">
+      <div className="max-w-7xl mx-auto text-xl flex flex-col md:flex-row justify-between gap-20">
         {/* Left Section */}
         <div className="space-y-4 max-w-xl md:flex-1">
           <h1 className="text-2xl font-bold text-white">DICHHIKA BARAL</h1>
@@ -59,16 +71,18 @@ const Footer = () => {
         <p>Built with React & Tailwind CSS</p>
       </div>
 
-      {/* Scroll to Top Button */}
-      <Link
-        to="home"
-        smooth={true}
-        duration={600}
-        className="fixed bottom-4 right-4 z-50 bg-white hover:bg-green-500 text-black p-3 rounded-full cursor-pointer transition-transform duration-500 hover:rotate-180"
-        aria-label="Scroll to top"
-      >
-        <FaArrowUp size={20} />
-      </Link>
+      {/* Scroll to Top Button (only shows when scrolled down) */}
+      {showScrollButton && (
+        <Link
+          to="home"
+          smooth={true}
+          duration={600}
+          className="fixed bottom-4 right-4 z-50 bg-white hover:bg-green-500 text-black p-3 rounded-full cursor-pointer transition-transform duration-500 hover:rotate-180"
+          aria-label="Scroll to top"
+        >
+          <FaArrowUp size={20} />
+        </Link>
+      )}
     </footer>
   );
 };

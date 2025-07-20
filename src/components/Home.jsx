@@ -45,13 +45,13 @@ const project = [
     image: portfolio,
     name: "Personal Portfolio",
     description: "Built with React.js and Tailwind CSS",
-    link: "http://localhost:5173/",
+    link: "https://react-portfolio-mtdwun10x-dichhikas-projects.vercel.app/",
   },
   {
     image: portgenerator,
     name: "Card Generator",
     description: "Built with HTML, CSS and JavaScript",
-    link: "https://your-card-generator-link.com",
+    link: "https://dichhika.github.io/Card-Generator/",
   },
   {
     image: pla,
@@ -196,7 +196,7 @@ const Home = () => {
             <Link to="">
               <div
                 className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md 
-                    text-green-700 hover:bg-[#1877F2] hover:text-white transition duration-300"
+                    text-green-700 hover:bg-[#1877F2] hover:text-white cursor-pointer transition duration-300"
               >
                 <FaFacebook className="text-xl" />
               </div>
@@ -206,7 +206,7 @@ const Home = () => {
             <Link to="">
               <div
                 className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md 
-                    text-green-700 hover:bg-[#0077B5] hover:text-white transition duration-300"
+                    text-green-700 hover:bg-[#0077B5] hover:text-white cursor-pointer transition duration-300"
               >
                 <FaLinkedin className="text-xl" />
               </div>
@@ -217,7 +217,7 @@ const Home = () => {
               <div
                 className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md 
     text-green-700 hover:bg-gradient-to-r hover:from-[#E4405F] hover:to-yellow-200
- hover:text-white transition duration-300"
+ hover:text-white transition duration-300 cursor-pointer"
               >
                 <FaInstagram className="text-xl" />
               </div>
@@ -226,9 +226,11 @@ const Home = () => {
 
           <Button
             btnStyle="px-5 py-2 border border-green-600 rounded-full text-lg text-white bg-green-500 mt-2 
-  hover:bg-green-600 hover:shadow-lg hover:scale-105 transition-transform duration-300 ease-in-out"
+  hover:bg-green-600 hover:shadow-lg hover:scale-105 cursor-pointer transition-transform duration-300 ease-in-out"
           >
-            <Link to="">Download CV</Link>
+            <a href="/CV.pdf" className="block w-full h-full">
+              Download CV
+            </a>
           </Button>
         </div>
 
@@ -237,7 +239,7 @@ const Home = () => {
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          className="p-5 rounded-full w-60 sm:w-72 md:w-80 lg:w-[500px] z-10 shadow-xl hover:scale-105 transition-transform duration-300"
+          className="p-5 rounded-full w-60 sm:w-72 cursor-pointer md:w-80 lg:w-[500px] z-10 shadow-xl hover:scale-105 transition-transform duration-300"
           src={photo1}
           alt="Dichhika Baral"
         />
@@ -264,12 +266,12 @@ const Home = () => {
             <h2 className="text-center text-green-500 font-bold text-2xl sm:text-3xl p-4">
               ABOUT ME
             </h2>
-            <div className="flex justify-center gap-4 mb-4">
+            <div className="flex justify-center gap-4 mb-4 ">
               {["about", "education", "experience"].map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`px-4 py-2 rounded-md text-sm font-medium ${
+                  className={`px-4 py-2 rounded-md text-sm font-medium cursor-pointer ${
                     activeTab === tab
                       ? "bg-green-500 text-white"
                       : "bg-gray-200 text-gray-800"
@@ -281,9 +283,17 @@ const Home = () => {
             </div>
             <div>{renderContent()}</div>
             <div className="text-center pt-4">
-              <button className="bg-green-500 text-white px-6 py-2 rounded shadow hover:scale-105 transition-transform duration-300">
-                Hire Me
-              </button>
+              <Link
+                to="contact"
+                smooth={true}
+                duration={700}
+                offset={-80}
+                className="cursor-none"
+              >
+                <Button btnStyle="bg-green-500 cursor-pointer text-white px-6 py-2 rounded shadow hover:scale-105 transition-transform duration-300">
+                  Hire Me
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -344,9 +354,17 @@ const Home = () => {
           <p className="text-base text-gray-700 mb-5">
             Let's work together to create something amazing.
           </p>
-          <button className="bg-green-600 text-white px-6 py-2 rounded-md font-semibold shadow hover:scale-105 transition-transform">
-            Contact Me
-          </button>
+          <Link
+            to="contact"
+            smooth={true}
+            duration={700}
+            offset={-80}
+            className="cursor-none"
+          >
+            <Button btnStyle="bg-green-500 cursor-pointer text-white px-6 py-2 rounded shadow hover:scale-105 transition-transform duration-300">
+              Contact Me
+            </Button>
+          </Link>
         </div>
       </motion.section>
 
@@ -440,7 +458,7 @@ const Home = () => {
                 placeholder="Your Name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full p-3 rounded bg-white placeholder-gray-400"
+                className="w-full p-3 rounded bg-white placeholder-gray-700"
                 required
               />
               <input
@@ -449,7 +467,7 @@ const Home = () => {
                 placeholder="your.email@example.com"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full p-3 rounded bg-white placeholder-gray-400"
+                className="w-full p-3 rounded bg-white placeholder-gray-700"
                 required
               />
               <textarea
@@ -458,7 +476,7 @@ const Home = () => {
                 placeholder="Your message here..."
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full p-3 rounded bg-white placeholder-gray-400"
+                className="w-full p-3 rounded bg-white placeholder-gray-700"
                 required
               ></textarea>
               <div className="text-right text-sm text-black">
