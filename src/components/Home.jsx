@@ -12,7 +12,8 @@ import postman from "../assets/img/Tools-Img/postman.png";
 import react from "../assets/img/Tools-Img/react.png";
 import tailwind from "../assets/img/Tools-Img/tailwind.png";
 import figma from "../assets/img/Tools-Img/Figma.png";
-import portgenerator from "../assets/img/Project-Img/logo.png";
+import vercel from "../assets/img/Tools-Img/Vercel.png";
+import cardgenerator from "../assets/img/Project-Img/logo.png";
 import portfolio from "../assets/img/Project-Img/Portfolio.png";
 import pla from "../assets/img/Project-Img/Pla.png";
 import blog from "../assets/img/Project-Img/blog.jpg";
@@ -38,6 +39,7 @@ const tools = [
   { name: "Postman", image: postman },
   { name: "Git", image: git },
   { name: "Figma", image: figma },
+  { name: "Vercel", image: vercel },
 ];
 
 const project = [
@@ -48,7 +50,7 @@ const project = [
     link: "https://react-portfolio-mtdwun10x-dichhikas-projects.vercel.app/",
   },
   {
-    image: portgenerator,
+    image: cardgenerator,
     name: "Card Generator",
     description: "Built with HTML, CSS and JavaScript",
     link: "https://dichhika.github.io/Card-Generator/",
@@ -62,8 +64,8 @@ const project = [
   {
     image: blog,
     name: "Blog Management System",
-    description: "Built with React and Tailwind Css",
-    link: "https://blog-management-react.vercel.app/",
+    description: "Built with React  and Tailwind Css",
+    link: "https://react-redux-blog-ms.vercel.app/",
   },
   {
     image: ecommerce,
@@ -356,10 +358,11 @@ const Home = () => {
       </motion.section>
       <hr />
       {/* Project Banner Section */}
+
       <motion.section
         initial={{ opacity: 0, y: 70 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="flex items-center justify-center px-4 py-16 bg-gradient-to-r from-green-200 to-green-300 mt-5"
         id="project-banner"
@@ -376,9 +379,9 @@ const Home = () => {
             smooth={true}
             duration={700}
             offset={-80}
-            className="cursor-none"
+            className="cursor-pointer"
           >
-            <Button btnStyle="bg-green-500 cursor-pointer text-white px-6 py-2 rounded shadow hover:scale-105 transition-transform duration-300">
+            <Button btnStyle="bg-green-500 text-white px-6 py-2 rounded shadow hover:scale-105 transition-transform duration-300">
               Contact Me
             </Button>
           </Link>
@@ -464,7 +467,7 @@ const Home = () => {
       >
         <div className="w-full max-w-6xl grid md:grid-cols-2 gap-10">
           {/* Left: Contact Form */}
-          <div className="bg-gradient-to-r from-green-200  to-green-300 p-6 rounded-xl shadow-xl text-white">
+          <div className="bg-gradient-to-r from-green-200  to-green-300 p-6 rounded-xl shadow-xl text-black">
             <h1 className="text-3xl font-bold mb-6 text-green-700">
               Send Me a Message
             </h1>
