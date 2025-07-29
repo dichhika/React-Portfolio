@@ -123,7 +123,7 @@ const Home = () => {
             <p>
               <strong>Frontend Development Intern</strong>
             </p>
-            <p>Velocis Core Company,Biratnagar,Nepal</p>
+            <p>Velocis Core Company, Biratnagar, Nepal</p>
             <p>Duration: December 23, 2024 - June 1, 2025</p>
           </motion.div>
         );
@@ -357,6 +357,7 @@ const Home = () => {
         </div>
       </motion.section>
       <hr />
+      
       {/* Project Banner Section */}
 
       <motion.section
