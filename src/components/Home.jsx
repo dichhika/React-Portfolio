@@ -11,6 +11,7 @@ import js from "../assets/img/Tools-Img/javascript.png";
 import postman from "../assets/img/Tools-Img/postman.png";
 import react from "../assets/img/Tools-Img/react.png";
 import tailwind from "../assets/img/Tools-Img/tailwind.png";
+import bootstrap from "../assets/img/Tools-Img/Bootstrap.png";
 import figma from "../assets/img/Tools-Img/Figma.png";
 import vercel from "../assets/img/Tools-Img/Vercel.png";
 import cardgenerator from "../assets/img/Project-Img/logo.png";
@@ -38,6 +39,7 @@ const tools = [
   { name: "Tailwind CSS", image: tailwind },
   { name: "Postman", image: postman },
   { name: "Git", image: git },
+  { name: "Bootstrap", image: bootstrap },
   { name: "Figma", image: figma },
   { name: "Vercel", image: vercel },
 ];
@@ -357,7 +359,7 @@ const Home = () => {
         </div>
       </motion.section>
       <hr />
-      
+
       {/* Project Banner Section */}
 
       <motion.section
