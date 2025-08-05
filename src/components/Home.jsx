@@ -168,17 +168,17 @@ const Home = () => {
         className="relative overflow-hidden bg-gradient-to-r from-green-200 via-white to-green-300 flex flex-col-reverse md:flex-row items-center justify-around p-6 md:p-12 lg:p-20"
       >
         {/* Decorative Balls with Soft Animation and Color Changes */}
-        <div className="absolute top-5 left-5 size-12 rounded-full bg-green-400 opacity-40 blur-md animate-pulse"></div>
-        <div className="absolute top-20 right-10 size-16 rounded-full bg-green-300 opacity-30 blur-lg animate-pulse"></div>
-        <div className="absolute bottom-10 left-1/4 size-20 rounded-full bg-green-500 opacity-40 blur-lg animate-pulse"></div>
-        <div className="absolute bottom-4 right-10 size-14 rounded-full bg-green-600 opacity-40 blur-md animate-pulse"></div>
+        <div className="absolute top-5 left-5 size-12 rounded-full bg-green-400 opacity-40 blur-md "></div>
+        <div className="absolute top-20 right-10 size-16 rounded-full bg-green-300 opacity-30 blur-lg "></div>
+        <div className="absolute bottom-10 left-1/4 size-20 rounded-full bg-green-500 opacity-40 blur-lg "></div>
+        <div className="absolute bottom-4 right-10 size-14 rounded-full bg-green-600 opacity-40 blur-md "></div>
 
         {/* Text content */}
         <div className="p-4 text-center md:text-left z-10">
           <h1 className="text-green-600 text-3xl sm:text-3xl md:text-4xl">
             I'm Dichhika Baral
           </h1>
-          <div className="text-green-500 text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-snug">
+          <div className="text-green-500 text-3xl sm:text-4xl md:text-5xl lg:text-6xl ">
             <Typewriter
               options={{
                 strings: ["Frontend Developer"],
@@ -361,7 +361,6 @@ const Home = () => {
       <hr />
 
       {/* Project Banner Section */}
-
       <motion.section
         initial={{ opacity: 0, y: 70 }}
         whileInView={{ opacity: 1, y: 0 }}
