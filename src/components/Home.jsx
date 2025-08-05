@@ -12,6 +12,7 @@ import postman from "../assets/img/Tools-Img/postman.png";
 import react from "../assets/img/Tools-Img/react.png";
 import tailwind from "../assets/img/Tools-Img/tailwind.png";
 import bootstrap from "../assets/img/Tools-Img/Bootstrap.png";
+import redux from "../assets/img/Tools-Img/Redux.png";
 import figma from "../assets/img/Tools-Img/Figma.png";
 import vercel from "../assets/img/Tools-Img/Vercel.png";
 import cardgenerator from "../assets/img/Project-Img/logo.png";
@@ -42,6 +43,7 @@ const tools = [
   { name: "Bootstrap", image: bootstrap },
   { name: "Figma", image: figma },
   { name: "Vercel", image: vercel },
+  { name: "Redux", image: redux },
 ];
 
 const project = [
@@ -66,7 +68,7 @@ const project = [
   {
     image: blog,
     name: "Blog Management System",
-    description: "Built with React  and Tailwind Css",
+    description: "Built with React Redux Toolkit and Tailwind Css",
     link: "https://react-redux-blog-ms.vercel.app/",
   },
   {
@@ -260,7 +262,7 @@ const Home = () => {
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          className="p-5 rounded-full w-60 sm:w-72 cursor-pointer md:w-80 lg:w-[500px] z-10 shadow-xl hover:scale-105 transition-transform duration-300"
+          className="p-5 rounded-full w-72 sm:w-80 md:w-96 lg:w-[500px] z-10 shadow-xl hover:scale-105 transition-transform duration-300"
           src={photo1}
           alt="Dichhika Baral"
         />
@@ -365,9 +367,8 @@ const Home = () => {
         initial={{ opacity: 0, y: 70 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
         className="flex items-center justify-center px-4 py-16 bg-gradient-to-r from-green-200 to-green-300 mt-5"
-        id="project-banner"
       >
         <div className="text-center">
           <h2 className="text-3xl font-bold text-green-700 mb-3">
@@ -393,12 +394,12 @@ const Home = () => {
       <hr />
       {/* Projects Showcase */}
       <motion.section
+        id="projects"
         initial={{ opacity: 0, y: 70 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
         className="bg-gray-100 px-6 py-16"
-        id="projects"
       >
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-green-700 mb-4">
@@ -450,22 +451,21 @@ const Home = () => {
       </motion.section>
 
       {/* Contact Section */}
-      {/* banner */}
-      <div className="text-center mt-4">
+      <motion.div className="text-center mt-4">
         <h1 className="text-4xl font-bold text-green-700 mb-3">Contact</h1>
-        <p className="text-gray-700 mb-1 text-2xl">
+        <p className="text-gray-700 mb-1 md:text-2xl text-base">
           Let's connect and work together
         </p>
-      </div>
+      </motion.div>
 
       {/* form */}
       <motion.div
+        id="contact"
         initial={{ opacity: 0, y: 70 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        id="contact"
-        className="flex items-center justify-center px-4 py-10 bg-grey-200" // min-h-screen REMOVED
+        className="flex items-center justify-center px-4 py-10 bg-grey-200"
       >
         <div className="w-full max-w-6xl grid md:grid-cols-2 gap-10">
           {/* Left: Contact Form */}

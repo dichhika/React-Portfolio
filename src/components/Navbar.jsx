@@ -22,7 +22,7 @@ const Navbar = () => {
       <div className="absolute top-16 right-1/4 w-12 h-12 rounded-full bg-green-300 opacity-50 blur-sm z-0"></div>
 
       {/* Logo */}
-      <div className="text-3xl font-extrabold cursor-pointer select-none z-10">
+      <div className="text-2xl  font-extrabold cursor-pointer select-none z-10">
         <span className="text-green-700">Dichhika</span>
         <span className="text-black"> Baral</span>
       </div>

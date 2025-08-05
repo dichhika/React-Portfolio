@@ -70,7 +70,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="max-w-7xl mx-auto mt-10 border-t border-green-600 pt-4 flex flex-col md:flex-row justify-between items-center text-xl text-white gap-4">
+      <div className="max-w-7xl mx-auto mt-10 border-t border-green-600 pt-4 flex flex-col md:flex-row justify-between items-center text-base md:text-xl text-white gap-4">
         <p>&copy; {year} Made with ❤️ by Dichhika Baral</p>
         <p>Built with React & Tailwind CSS</p>
       </div>
